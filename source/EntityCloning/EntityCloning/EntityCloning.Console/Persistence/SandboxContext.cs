@@ -13,5 +13,7 @@ namespace EntityCloning.Console.Persistence
         { }
 
         public virtual DbSet<SandGrainEntity> Grains { get; set; }
+
+        public virtual DbSet<BeachEntity> Beaches { get; set; }
     }
 }

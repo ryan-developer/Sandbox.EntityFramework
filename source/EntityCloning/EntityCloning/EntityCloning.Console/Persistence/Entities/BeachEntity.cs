@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityCloning.Console.Persistence.Entities
 {
-    [Table("SandGrain")]
-    public class SandGrainEntity
+    [Table("Beach")]
+    public class BeachEntity
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int InternalId { get; set; }
@@ -14,9 +15,6 @@ namespace EntityCloning.Console.Persistence.Entities
 
         public DateTime CreatedDate { get; set; }
 
-        public int BeachId { get; set; }
-
-        [ForeignKey(nameof(BeachId))]
-        public BeachEntity Beach { get; set; }
+        public virtual List<SandGrainEntity> Grains { get; set; } = new List<SandGrainEntity>();
     }
 }
